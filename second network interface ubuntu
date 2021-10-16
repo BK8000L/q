@@ -1,4 +1,5 @@
 sudo nano /etc/systemd/network/25-second.network
+
 [Match]
 Name=enp1s0
 
@@ -12,5 +13,10 @@ Table=1000
 [Link]
 MTUBytes=9000
 
+[RoutingPolicyRule]
+From=172.16.0.172
+Table=1000
 
-sudo ip rule add from 172.16.0.172 lookup 1000
+[RoutingPolicyRule]
+To=172.16.0.172
+Table=1000
